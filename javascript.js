@@ -2,6 +2,10 @@ const numKeys = document.getElementById("numberKeys");
 const numKeysWidth = document.getElementById("numberKeys").offsetWidth;
 const functionKeys = document.getElementById("functionKeys");
 const functionKeysWidth = document.getElementById("functionKeys").offsetWidth;
+let input = document.getElementById("input");
+let result = document.getElementById("result");
+let inputValueInt = document.getElementById("inputValue").innerHTML;
+let inputLength = inputValueInt.length;
 
 function createNumberKeys(){
     let numberIndex = 1;
@@ -11,6 +15,11 @@ function createNumberKeys(){
         integerKey.style.flex = 30+"%";
         integerKey.style.borderRadius = 5+"px";
         integerKey.style.textAlign = "center";
+        integerKey.addEventListener("click", function(){
+            let inputValueInt = document.getElementById("inputValue").innerHTML;
+            let inputLength = inputValueInt.length;
+            if (inputLength < 5) {document.getElementById("inputValue").innerHTML = document.getElementById("inputValue").innerHTML + integerKey.textContent;};
+        });
         numKeys.appendChild(integerKey);
         numberIndex += 1;
     }
@@ -21,6 +30,11 @@ function createNumberKeys(){
         zeroKey.style.flex = 30+"%";
         zeroKey.style.borderRadius = 5+"px";
         zeroKey.style.textAlign = "center";
+        zeroKey.addEventListener("click", function(){
+            let inputValueInt = document.getElementById("inputValue").innerHTML;
+            let inputLength = inputValueInt.length;
+            if (inputLength < 5) {document.getElementById("inputValue").innerHTML = document.getElementById("inputValue").innerHTML + zeroKey.textContent;};
+        });
         numKeys.appendChild(zeroKey);
         zeroIndex += "0";
     }
@@ -29,6 +43,11 @@ function createNumberKeys(){
     decimalKey.style.flex = 30+"%";
     decimalKey.style.borderRadius = 5+"px";
     decimalKey.style.textAlign = "center";
+    decimalKey.addEventListener("click", function(){
+        let inputDecimal = document.getElementById("inputValue").innerHTML;
+        let decimalTruth = inputDecimal.includes(".");
+        if (decimalTruth === false) {document.getElementById("inputValue").innerHTML = document.getElementById("inputValue").innerHTML + decimalKey.textContent;};
+    });
     numKeys.appendChild(decimalKey); 
 }
 
@@ -67,6 +86,11 @@ function createFunctionKeys() {
     del.style.width = 100+"%";
     del.style.borderRadius = 5+"px";
     del.style.textAlign = "center";
+    del.addEventListener("click", function(){
+        let innerValue = document.getElementById("inputValue").innerHTML;
+        innerValue = innerValue.slice(0, -1);
+        document.getElementById("inputValue").innerHTML = innerValue;
+    })
     functionKeys.appendChild(del);
 
     const clear = document.createElement("button");
@@ -74,6 +98,10 @@ function createFunctionKeys() {
     clear.style.width = 100+"%";
     clear.style.borderRadius = 5+"px";
     clear.style.textAlign = "center";
+    clear.addEventListener("click", function(){
+        document.getElementById("resultValue").innerHTML = "";
+        document.getElementById("inputValue").innerHTML = "";
+    });
     functionKeys.appendChild(clear);
 
     const result = document.createElement("button");
@@ -85,22 +113,12 @@ function createFunctionKeys() {
 
 }
 
+
+
+
+
+
 createNumberKeys();
 createFunctionKeys();
 
-/*function createKeys(){
-    let numberIndex = 1
-    for (let index = 0; index < 9; index++) {
-        const intKey = document.createElement("div");
-        intKey.textContent = numberIndex;
-        intKey.style.padding = 2 + "px";
-        intKey.style.borderStyle = "solid";
-        intKey.style.borderColor = "black";
-        intKey.style.width = numKeysWidth/3;
-        intKey.style.aspectRatio = 1/1;
-        numberIndex += 1; 
-        numKeys.appendChild(intKey);
-    }
-}
 
-createKeys();*/
