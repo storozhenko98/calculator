@@ -67,6 +67,7 @@ function createFunctionKeys() {
 
     const add = document.createElement("button");
     add.style.width = 100+"%";
+    add.style.height = 14 + "%";
     add.textContent = "+";
     add.style.borderRadius = 5+"px";
     add.style.textAlign = "center";
@@ -75,8 +76,9 @@ function createFunctionKeys() {
    
 
     const subtract = document.createElement("button");
-    subtract.textContent = "-";
     subtract.style.width = 100+"%";
+    subtract.style.height = 14 + "%";
+    subtract.textContent = "-";
     subtract.style.borderRadius = 5+"px";
     subtract.style.textAlign = "center";
     subtract.addEventListener("click", ()=>{valueOne = numberRegistryOne(); subtractionFunc = true});
@@ -85,6 +87,7 @@ function createFunctionKeys() {
     const divide = document.createElement("button");
     divide.textContent = "/";
     divide.style.width = 100+"%";
+    divide.style.height = 14 + "%";
     divide.style.borderRadius = 5+"px";
     divide.style.textAlign = "center";
     divide.addEventListener("click", ()=>{valueOne = numberRegistryOne(); divisionFunc = true});
@@ -93,6 +96,7 @@ function createFunctionKeys() {
     const multiply = document.createElement("button");
     multiply.textContent = "X";
     multiply.style.width = 100+"%";
+    multiply.style.height = 14 + "%";
     multiply.style.borderRadius = 5+"px";
     multiply.style.textAlign = "center";
     multiply.addEventListener("click", ()=>{valueOne = numberRegistryOne(); multiplicationFunc = true});
@@ -101,6 +105,7 @@ function createFunctionKeys() {
     const del = document.createElement("button");
     del.textContent = "DEL";
     del.style.width = 100+"%";
+    del.style.height = 14 + "%";
     del.style.borderRadius = 5+"px";
     del.style.textAlign = "center";
     del.addEventListener("click", function(){
@@ -113,6 +118,7 @@ function createFunctionKeys() {
     const clear = document.createElement("button");
     clear.textContent = "CL";
     clear.style.width = 100+"%";
+    clear.style.height = 14 + "%";
     clear.style.borderRadius = 5+"px";
     clear.style.textAlign = "center";
     clear.addEventListener("click", function(){
@@ -124,6 +130,7 @@ function createFunctionKeys() {
     const result = document.createElement("button");
     result.textContent = "=";
     result.style.width = 100+"%";
+    result.style.height = 14 + "%";
     result.style.borderRadius = 5+"px";
     result.style.textAlign = "center";
     result.addEventListener("click", ()=>{calculation()});
@@ -203,24 +210,32 @@ function division(){
 
 function calculation(){
     if (addFunc == true){
-        outputValue = addition();
+        let outputValue = addition();
+        outputValue = outputValue.toString();
+        outputValue = outputValue.substring(0, 5);
         document.getElementById("resultValue").innerHTML = outputValue;
         addFunc = false;
     }
     if (subtractionFunc == true){
-        outputValue = subtraction();
+        let outputValue = subtraction();
+        outputValue = outputValue.toString();
+        outputValue = outputValue.substring(0, 5);
         document.getElementById("resultValue").innerHTML = outputValue;
-        subtractionFunc == false;
+        subtractionFunc = false;
     }
     if (multiplicationFunc == true){
-        outputValue = multiplication();
+        let outputValue = multiplication();
+        outputValue = outputValue.toString();
+        outputValue = outputValue.substring(0, 5);
         document.getElementById("resultValue").innerHTML = outputValue;
-        multiplicationFunc == false;
+        multiplicationFunc = false;
     }
     if (divisionFunc == true){
-        outputValue = division();
+        let outputValue = division();
+        outputValue = outputValue.toString();
+        outputValue = outputValue.substring(0, 5);
         document.getElementById("resultValue").innerHTML = outputValue;
-        divisionFunc == false;
+        divisionFunc = false;
     }
 }
 
