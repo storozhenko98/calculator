@@ -26,7 +26,7 @@ function createNumberKeys(){
         integerKey.addEventListener("click", function(){
             let inputValueInt = document.getElementById("inputValue").innerHTML;
             let inputLength = inputValueInt.length;
-            if (inputLength < 5) {document.getElementById("inputValue").innerHTML = document.getElementById("inputValue").innerHTML + integerKey.textContent;};
+            if (inputLength < 7) {document.getElementById("inputValue").innerHTML = document.getElementById("inputValue").innerHTML + integerKey.textContent;};
         });
         numKeys.appendChild(integerKey);
         numberIndex += 1;
@@ -42,7 +42,7 @@ function createNumberKeys(){
         zeroKey.addEventListener("click", function(){
             let inputValueInt = document.getElementById("inputValue").innerHTML;
             let inputLength = inputValueInt.length;
-            if (inputLength < 5) {document.getElementById("inputValue").innerHTML = document.getElementById("inputValue").innerHTML + zeroKey.textContent;};
+            if (inputLength < 7) {document.getElementById("inputValue").innerHTML = document.getElementById("inputValue").innerHTML + zeroKey.textContent;};
         });
         numKeys.appendChild(zeroKey);
         zeroIndex += "0";
@@ -212,28 +212,28 @@ function calculation(){
     if (addFunc == true){
         let outputValue = addition();
         outputValue = outputValue.toString();
-        outputValue = outputValue.substring(0, 5);
+        outputValue = outputValue.substring(0, 7);
         document.getElementById("resultValue").innerHTML = outputValue;
         addFunc = false;
     }
     if (subtractionFunc == true){
         let outputValue = subtraction();
         outputValue = outputValue.toString();
-        outputValue = outputValue.substring(0, 5);
+        outputValue = outputValue.substring(0, 7);
         document.getElementById("resultValue").innerHTML = outputValue;
         subtractionFunc = false;
     }
     if (multiplicationFunc == true){
         let outputValue = multiplication();
         outputValue = outputValue.toString();
-        outputValue = outputValue.substring(0, 5);
+        outputValue = outputValue.substring(0, 7);
         document.getElementById("resultValue").innerHTML = outputValue;
         multiplicationFunc = false;
     }
     if (divisionFunc == true){
         let outputValue = division();
         outputValue = outputValue.toString();
-        outputValue = outputValue.substring(0, 5);
+        outputValue = outputValue.substring(0, 7);
         document.getElementById("resultValue").innerHTML = outputValue;
         divisionFunc = false;
     }
